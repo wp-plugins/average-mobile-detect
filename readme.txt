@@ -1,7 +1,7 @@
 
 === Average Mobile Detect ===
 
-Contributors: average.technology,joerhoney
+Contributors: averageheros,average.technology,joerhoney
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7AF7P3TFKQ2C2
 Tags: mobile, mobile detect, mobile detection, mobile redirect, mobile site redirect, mobile redirection, mobile site redirection, 301 redirect to mobile site, mobile device, redirect mobile device, desktop site to mobile site redirect
 Requires at least: 3.0.1
