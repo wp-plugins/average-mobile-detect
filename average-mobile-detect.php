@@ -3,7 +3,7 @@
     Plugin Name: Average Mobile Detect
     Plugin URI:
     Description: Redirects mobile traffic to your mobile website on a page-by-page basis (posts and custom post types included). This can be overridden on any page individually with a convenient meta box adjacent to the WYSIWYG. Sets a cookie to remember which version of your website (desktop or mobile, usually) your visitors opted for. Includes a widget for inserting a link back to your mobile site, which is only generated for mobile devices. Includes two shortcodes for generating links to your mobile site--one is generated only for mobile devices and the other is generated regardless. No CSS rules are used. CSS classes are provided, yielding coders full reign to style the generated links to fit the website theme. Adds a class to the body ("mobile-detected") to help coders write styles specifically for mobile devices. Leaves 404 errors untouched, allowing you to maintain 404 statuses. Basically, it gives you loads of control of your mobile redirects.
-    Version: 1.0
+    Version: 1.1
     Author: Average
     Author URI: http://profiles.wordpress.org/averagetechnology
     License: Public Domain
@@ -200,14 +200,15 @@ class avrg_mobsitelink_widget extends WP_Widget {
         $the_mobile_site_uri='/'; // Fallback
       }
       $title = apply_filters('widget_title',$instance['title']);
+      $class = "mobile-site-opt mobile-site-link";
       echo $args['before_widget'];
       if (!empty($title))
       {
-        $mobsitelink = '<a class="mobile-site-link" href="'.$the_mobile_site_uri.'" title="'.$title.'">'.$title.'</a>';
+        $mobsitelink = '<a class="'.$class.'" href="'.$the_mobile_site_uri.'" title="'.$title.'">'.$title.'</a>';
       }
       else
       {
-        $mobsitelink = '<a class="mobile-site-link" href="'.$the_mobile_site_uri.'" title="View Mobile Version">View Mobile Version</a></div>';
+        $mobsitelink = '<a class="'.$class.'" href="'.$the_mobile_site_uri.'" title="View Mobile Version">View Mobile Version</a></div>';
       }
       echo __($mobsitelink,'text_domain');
       echo $args['after_widget'];
@@ -324,6 +325,48 @@ function avrgmobdtct_mobsitebttn_sc($atts)
   }
 }
 add_shortcode('mobilesitebutton', 'avrgmobdtct_mobsitebttn_sc');
+
+#   [mobilesite text="View Mobile Version" class="mobile-site-link"]
+function avrgmobdtct_mobsite_sc($atts)
+{
+  if(!class_exists('Mobile_Detect'))
+  {
+    include plugin_basename('/Mobile_Detect.php');
+  }
+  $detect = new Mobile_Detect();
+  if ($detect->isMobile() && !$detect->isTablet())
+  {
+    if(get_option('the_mobile_site_uri'))
+    {
+      $the_mobile_site_uri=get_option('the_mobile_site_uri');
+    }
+    ob_start();
+    $avrgmobdtctScMerged = shortcode_atts( array(
+      'text'    => 'View Mobile Version',
+      'class'   => 'mobile-site-link',
+      'page'    => '',
+    ), $atts, 'mobilesite' );
+    extract($avrgmobdtctScMerged);
+    if(!empty($page))
+    {
+      if($page=='/')
+      {
+        $mobPageURN = '';
+      }
+      else
+      {
+        $mobPageURN = '/'.$page;
+      }
+    }
+    else
+    {
+      $mobPageURN = $_SERVER['REQUEST_URI'];
+    }
+    echo '<a href="'.$the_mobile_site_uri.$mobPageURN.'" class="'.$class.'">'.$text.'</a>';
+    return ob_get_clean();
+  }
+}
+add_shortcode('mobilesite', 'avrgmobdtct_mobsitebttn_sc');
 
 
 

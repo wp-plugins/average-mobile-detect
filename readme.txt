@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: mobile, mobile detect, mobile detection, mobile redirect, mobile site redirect, mobile redirection, mobile site redirection, 301 redirect to mobile site, mobile device, redirect mobile device, desktop site to mobile site redirect
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,13 @@ When a coconut falls on the beach and no one is around to hear it, does it make 
 3. Pages and post (and custom post types) are equipped with a meta box for overriding its own mobile redirect location (e.g. if the page on your desktop site is `yourdesktopsite.com/sales`, but on your mobile site it isn't `yourmobilesite.com/sales`, but `yourmobilesite.com/mobilespecials` instead, you can override the redirect with `/mobilespecials` in this field.
 
 == Changelog ==
+
+= 1.1 =
+15-Oct-2014
+
+*   Adds shortcode [mobilesite] back in for older websites that are using it (websites created before Average Mobile Detect was released on the WordPress repository)
+*   Adds CSS class "mobile-site-opt" to link output by widget to replace css class "mobile-site-link"
+*   Declares CSS class "mobile-site-link" deprecated for widgets (not deprecated for shortcode). Use "mobile-site-opt" instead. This was decided upon to avoid confusion between the widget and the shortcode when styling.
 
 = 1.0 =
 27-Aug-2014
