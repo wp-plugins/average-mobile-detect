@@ -366,7 +366,7 @@ function avrgmobdtct_mobsite_sc($atts)
     return ob_get_clean();
   }
 }
-add_shortcode('mobilesite', 'avrgmobdtct_mobsitebttn_sc');
+add_shortcode('mobilesite', 'avrgmobdtct_mobsite_sc');
 
 
 
