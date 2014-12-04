@@ -47,22 +47,25 @@
               <li>I contact you as soon as I can (no less than 24 hours) and help resolve your issue</li>
               <li>That's it!</li>
             </ol>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input name="cmd" type="hidden" value="_s-xclick" />
-  <input name="hosted_button_id" type="hidden" value="45JKXJDBN9AME" />
-              <table><tbody><tr>
-                <td><input name="on0" type="hidden" value="Please give your ticket a name" />Please give your ticket a name</td>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="2ALABGHC83M4W">
+              <table>
+                <tr>
+                  <td><input type="hidden" name="on0" value="Name your ticket">Name your ticket</td>
                 </tr>
                 <tr>
-                  <td><input maxlength="200" name="os0" type="text" /></td>
+                  <td><input type="text" name="os0" maxlength="200"></td>
                 </tr>
                 <tr>
-                  <td><input name="on1" type="hidden" value="Best way to contact you" />Best way to contact you</td>
+                  <td><input type="hidden" name="on1" value="Best way to contact you">Best way to contact you</td>
                 </tr>
                 <tr>
-                  <td><input maxlength="200" name="os1" type="text" /></td>
-                </tr></tbody></table>
-              <input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" type="image" />
-              <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-small.png" alt="Buy now with PayPal" />
+                  <td><input type="text" name="os1" maxlength="200"></td>
+                </tr>
+              </table>
+              <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-small.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
             </form>
             <p><strong>Note</strong>: This is for&nbsp;<em>custom</em>&nbsp;needs for help, not problems with the plugin, or instructions that should already be explain in the description. If you feel there are important details omitted from the <a href="http://wordpress.org/plugins/average-mobile-detect/" target="_blank">Description</a>, <a href="http://wordpress.org/plugins/average-mobile-detect/installation/" target="_blank">Installation</a> steps, etc. of the plugin, please report them in the <a href="http://wordpress.org/support/plugin/average-mobile-detect" target="_blank">Support forum</a>. Thanks!</p>
       </div> <!-- #postbox-container-1 .postbox-container -->
