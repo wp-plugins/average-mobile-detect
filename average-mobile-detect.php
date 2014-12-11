@@ -3,7 +3,7 @@
     Plugin Name: Average Mobile Detect
     Plugin URI:
     Description: Redirects mobile traffic to your mobile website on a page-by-page basis (posts and custom post types included). This can be overridden on any page individually with a convenient meta box adjacent to the WYSIWYG. Sets a cookie to remember which version of your website (desktop or mobile, usually) your visitors opted for. Includes a widget for inserting a link back to your mobile site, which is only generated for mobile devices. Includes two shortcodes for generating links to your mobile site--one is generated only for mobile devices and the other is generated regardless. No CSS rules are used. CSS classes are provided, yielding coders full reign to style the generated links to fit the website theme. Adds a class to the body ("mobile-detected") to help coders write styles specifically for mobile devices. Leaves 404 errors untouched, allowing you to maintain 404 statuses. Basically, it gives you loads of control of your mobile redirects.
-    Version: 1.1
+    Version: 1.2
     Author: Average
     Author URI: http://profiles.wordpress.org/averagetechnology
     License: Public Domain
@@ -114,18 +114,20 @@ function avrgmobdtctRedirect() {
 */
 
 # Remove default value before saving to the database
-function xdefaultvalue($input)
-{
-  if(isset($input))
+if(!function_exists('avrgxmobdefault')){
+  function avrgxmobdefault($input)
   {
-    if ($input=='http://')
+    if(isset($input))
     {
-      $input = NULL;
-      return $input;
-    }
-    else
-    {
-      return $input;
+      if ($input=='http://')
+      {
+        $input = NULL;
+        return $input;
+      }
+      else
+      {
+        return $input;
+      }
     }
   }
 }
@@ -141,7 +143,7 @@ define('avrgmobdtct_NICK', 'Mobile Detect');
     public static function register()
     {
       register_setting(avrgmobdtct_ID.'_options', 'avrgmobdtct_redirect');
-      register_setting(avrgmobdtct_ID.'_options', 'the_mobile_site_uri','xdefaultvalue');
+      register_setting(avrgmobdtct_ID.'_options', 'the_mobile_site_uri','avrgxmobdefault');
       register_setting(avrgmobdtct_ID.'_options', 'non_mobile_site_uri');
     }
     public static function menu()
@@ -384,7 +386,7 @@ function avrgmobdtct_cb($post)
 {
   $values = get_post_custom($post->ID);
   $mobile_equivlant = isset( $values['avrgmobdtct_equiv']) ? esc_attr($values['avrgmobdtct_equiv'][0]) : '';
-  wp_nonce_field('avrgmobdtct_nonce', 'meta_box_nonce');
+  wp_nonce_field('avrgmobdtct_nonce', 'avrgmobdtct_mb_nonce');
   ?>
   <p>
     <label for="avrgmobdtct_equiv">Mobile Equivlant:</label>
@@ -397,7 +399,7 @@ add_action( 'save_post', 'avrgmobdtct_save' );
 function avrgmobdtct_save( $post_id )
 {
   if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-  if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'avrgmobdtct_nonce' ) ) return;
+  if( !isset( $_POST['avrgmobdtct_mb_nonce'] ) || !wp_verify_nonce( $_POST['avrgmobdtct_mb_nonce'], 'avrgmobdtct_nonce' ) ) return;
   if( !current_user_can( 'edit_post' ) ) return;
   if( isset( $_POST['avrgmobdtct_equiv']))
     update_post_meta($post_id, 'avrgmobdtct_equiv', $_POST['avrgmobdtct_equiv']);

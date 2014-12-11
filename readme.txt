@@ -6,13 +6,16 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: mobile, mobile detect, mobile detection, mobile redirect, mobile site redirect, mobile redirection, mobile site redirection, 301 redirect to mobile site, mobile device, redirect mobile device, desktop site to mobile site redirect
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Redirects mobile traffic to mobile site, allows visitors to opt for desktop site, provides shortcodes and widget to generate links to mobile site
 
 == Description ==
+
+> **Notice**
+> Average is changing its name to AddFunc (thank goodness). Therefore, this plugin has been republished as [AddFunc Mobile Detect](https://wordpress.org/plugins/addfunc-mobile-detect/). The "AddFunc version" is compatible with the "Average version," so installation and activation is risk-free. This also enables you to manually transfer all of your redirects to the "AddFunc version" if you're going to switch to it (although some values will automatically carry over from the "Average version"). Keeping both versions running simultaneously after transferring your redirects however, is not recommended. The "Average version" will remain available with minimal support until it becomes a burden for AddFunc (probably for many years to come, as of 2014). Any new features will only be added to the "AddFunc version," so it is of course the recommended version (at least moving forward). Thanks!
 
 Uses [Mobile Detect](http://mobiledetect.net/) to redirect mobile traffic to your mobile website.
 
@@ -88,6 +91,14 @@ When a coconut falls on the beach and no one is around to hear it, does it make 
 3. Pages and post (and custom post types) are equipped with a meta box for overriding its own mobile redirect location (e.g. if the page on your desktop site is `yourdesktopsite.com/sales`, but on your mobile site it isn't `yourmobilesite.com/sales`, but `yourmobilesite.com/mobilespecials` instead, you can override the redirect with `/mobilespecials` in this field.
 
 == Changelog ==
+
+= 1.2 =
+11-Dec-2014
+
+*   Announces move to [AddFunc Mobile Detect](https://wordpress.org/plugins/addfunc-mobile-detect/)
+*   Fixes metabox nonce
+*   Changes xdefaultvalue() to avrgxmobdefault()
+*   Checks for avrgxmobdefault() before running it
 
 = 1.1 =
 15-Oct-2014

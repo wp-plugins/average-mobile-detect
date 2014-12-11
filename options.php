@@ -1,7 +1,8 @@
 <div class="wrap">
 <?php screen_icon();
       $domain_name =  preg_replace('/^www\./','',$_SERVER['SERVER_NAME']); ?>
-  <h2>Mobile Detect</h2>
+  <h2>(Average) Mobile Detect</h2>
+  <div class="update-nag">Average is changing its name to AddFunc (thank goodness). Therefore, this plugin has been republished as <a href="https://wordpress.org/plugins/addfunc-mobile-detect/" target="_blank">AddFunc Mobile Detect</a>. <a href="/wp-admin/plugin-install.php?tab=search&s=AddFunc+Mobile+Detect">Try this link for an easy install</a> (works in most WordPress 4+ installs). The "AddFunc version" is compatible with the "Average version," so installation and activation is risk-free. This also enables you to manually transfer all of your redirects to the "AddFunc version" if you're going to switch to it (although some values will automatically carry over from the "Average version"). Keeping both versions running simultaneously after transferring your redirects however, is not recommended. The "Average version" will remain available with minimal support until it becomes a burden for AddFunc (probably for many years to come, as of 2014). Any new features will only be added to the "AddFunc version," so it is of course the recommended version (at least moving forward). Thanks!</div>
   <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
       <div id="post-body-content">
@@ -40,7 +41,7 @@
       <!-- sidebar -->
       <div id="postbox-container-1" class="postbox-container">
             <h2>Support Tickets</h2>
-            <p>If you need custom support for this plugin (Average Mobile Detect) or any other Average plugin, you can purchase help with a support ticket below. Support tickets are responded to within 24 hours, but we answer them as soon as possible.</p>
+            <p>If you need custom support for this plugin (Average Mobile Detect) or any other Average or AddFunc plugin, you can purchase help with a support ticket below. Support tickets are responded to within 24 hours, but we answer them as soon as possible.</p>
             <p><strong>How it works</strong></p>
             <ol>
               <li>Purchase a support ticket below</li>
