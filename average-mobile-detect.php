@@ -380,7 +380,7 @@ add_shortcode('mobilesite', 'avrgmobdtct_mobsite_sc');
 add_action('add_meta_boxes', 'avrgmobdtct_add');
 function avrgmobdtct_add()
 {
-  add_meta_box('avrgmobdtctMetaBox', 'Mobile Detect', 'avrgmobdtct_cb', '', 'normal', 'high');
+  add_meta_box('avrgmobdtctMetaBox', '(Average) Mobile Detect', 'avrgmobdtct_cb', '', 'normal', 'high');
 }
 function avrgmobdtct_cb($post)
 {
